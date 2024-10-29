@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": -41.4, "left": -246.8, "attrs": {} },
+    { "type": "board-esp32-c3-devkitm-1", "id": "esp", "top": -19.5, "left": 217.02, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -32.4,
+      "left": -63.4,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -32.4,
+      "left": -92.2,
+      "attrs": { "color": "yellow" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "led1:A", "bb1:20t.a", "", [ "$bb" ] ],
+    [ "led1:C", "bb1:19t.a", "", [ "$bb" ] ],
+    [ "led1:C", "esp:GND.2", "green", [ "v0" ] ],
+    [ "led1:A", "esp:2", "green", [ "v0" ] ],
+    [ "led2:A", "bb1:17t.a", "", [ "$bb" ] ],
+    [ "led2:C", "bb1:16t.a", "", [ "$bb" ] ],
+    [ "led2:C", "esp:GND.1", "green", [ "v0" ] ],
+    [ "led2:A", "esp:3", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
